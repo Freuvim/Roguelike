@@ -10,7 +10,7 @@
     <unique-id>2re7oex4qpxfk</unique-id>
     <saved-with-version>23300</saved-with-version>
     <used-plugins>
-        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
     </used-plugins>
@@ -83,9 +83,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type global="1" name="wordgenerator" sid="279088498275361">
-            <plugin id="Arr" />
-        </object-type>
         <object-type name="Keyboard" sid="171067611717811">
             <plugin id="Keyboard" />
         </object-type>
@@ -121,6 +118,9 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="GerarDungeon" sid="639908650399663">
+            <plugin id="Function" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -131,6 +131,7 @@
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="67" />
+        <global-instance type="GerarDungeon" uid="2" />
     </global-instances>
     <sounds-folder />
     <music-folder />

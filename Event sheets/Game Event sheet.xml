@@ -6,6 +6,7 @@
         <variable constant="0" name="posPlayer" sid="471496584713456" static="0" type="number">0</variable>
         <variable constant="0" name="x" sid="265921327847627" static="0" type="number">0</variable>
         <variable constant="0" name="y" sid="129445141149614" static="0" type="number">0</variable>
+        <variable constant="0" name="SuppressWalls" sid="239421563269712" static="0" type="number">0</variable>
         <event-block sid="728648005411524">
             <conditions>
                 <condition id="-1" name="Every tick" sid="933359460523062" type="System" />
@@ -34,11 +35,15 @@
                 <condition id="-2" name="On start of layout" sid="765462888531421" type="System" />
             </conditions>
             <actions>
+                <action id="-9" name="Destroy" sid="672236490246137" type="player" />
+                <action id="0" name="Call function" sid="108173089337039" type="GerarDungeon">
+                    <param id="0" name="Name">&quot;GerarDungeon&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
                 <action id="-9" name="Set value" sid="732116417089862" type="System">
                     <param id="0" name="Variable">posPlayer</param>
                     <param id="1" name="Value">floor(random(4))</param>
                 </action>
-                <action id="-9" name="Destroy" sid="672236490246137" type="player" />
             </actions>
         </event-block>
         <event-block sid="936436338934490">
@@ -90,7 +95,7 @@
                         <action id="-3" name="Create object" sid="108034605339974" type="System">
                             <param id="0" name="Object to create">player</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">112</param>
+                            <param id="2" name="X">104</param>
                             <param id="3" name="Y">8</param>
                         </action>
                         <action id="-9" name="Set value" sid="212862334203522" type="System">
@@ -112,7 +117,7 @@
                             <param id="0" name="Object to create">player</param>
                             <param id="1" name="Layer">0</param>
                             <param id="2" name="X">8</param>
-                            <param id="3" name="Y">96</param>
+                            <param id="3" name="Y">104</param>
                         </action>
                         <action id="-9" name="Set value" sid="740719194254496" type="System">
                             <param id="0" name="Variable">posPlayer</param>
@@ -132,8 +137,8 @@
                         <action id="-3" name="Create object" sid="163834130078284" type="System">
                             <param id="0" name="Object to create">player</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">112</param>
-                            <param id="3" name="Y">96</param>
+                            <param id="2" name="X">104</param>
+                            <param id="3" name="Y">104</param>
                         </action>
                         <action id="-9" name="Set value" sid="488653004887992" type="System">
                             <param id="0" name="Variable">posPlayer</param>
@@ -145,26 +150,140 @@
         </event-group>
         <event-group description="" sid="463391631029788" title="WordGenerator">
             <sub-events>
-                <event-block sid="340737582723662">
+                <event-block sid="625776211610626">
                     <conditions>
-                        <condition id="-10" name="For" sid="739594251076209" type="System">
-                            <param id="0" name="Name">&quot;x&quot;</param>
-                            <param id="1" name="Start index">1</param>
-                            <param id="2" name="End index">7</param>
+                        <condition id="0" name="On function" sid="431730567879349" type="GerarDungeon">
+                            <param id="0" name="Name">&quot;GerarDungeon&quot;</param>
                         </condition>
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="322001314256113">
-                            <conditions>
-                                <condition id="-10" name="For" sid="480196593861284" type="System">
-                                    <param id="0" name="Name">&quot;y&quot;</param>
-                                    <param id="1" name="Start index">1</param>
-                                    <param id="2" name="End index">7</param>
-                                </condition>
-                            </conditions>
-                            <actions />
-                        </event-block>
+                        <event-group description="" sid="888540747715876" title="Dungeon">
+                            <sub-events>
+                                <event-block sid="734733376334145">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="885500864039970" type="System">
+                                            <param id="0" name="Object">wall</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="534528068265541" type="wall" />
+                                    </actions>
+                                </event-block>
+                                <event-block sid="706639518244346">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="388225560870548" type="System">
+                                            <param id="0" name="Name">&quot;y&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">14</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="437446268206922" type="System">
+                                            <param id="0" name="Object to create">wall</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">0</param>
+                                            <param id="3" name="Y">loopindex(&quot;y&quot;)*8</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="683332479034402" type="System">
+                                            <param id="0" name="Object to create">wall</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">112</param>
+                                            <param id="3" name="Y">loopindex(&quot;y&quot;)*8</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="456151875130986">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="670653884010380" type="System">
+                                            <param id="0" name="Name">&quot;x&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">14</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="659736392608227" type="System">
+                                            <param id="0" name="Object to create">wall</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">loopindex(&quot;x&quot;)*8</param>
+                                            <param id="3" name="Y">0</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="802259285039174" type="System">
+                                            <param id="0" name="Object to create">wall</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">loopindex(&quot;x&quot;)*8</param>
+                                            <param id="3" name="Y">112</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="248702368400636" title="Maze">
+                            <sub-events>
+                                <event-block sid="226139952167348">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="787699528331230" type="System">
+                                            <param id="0" name="Name">&quot;x&quot;</param>
+                                            <param id="1" name="Start index">1</param>
+                                            <param id="2" name="End index">12</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="625855713940414">
+                                            <conditions>
+                                                <condition id="-10" name="For" sid="334443444780914" type="System">
+                                                    <param id="0" name="Name">&quot;y&quot;</param>
+                                                    <param id="1" name="Start index">1</param>
+                                                    <param id="2" name="End index">12</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <variable constant="0" name="r" sid="490346812650911" static="0" type="number">0</variable>
+                                                <event-block sid="663868573806528">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="825877959743760" type="System">
+                                                            <param id="0" name="First value">loopindex(&quot;x&quot;)%2</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">0</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Compare two values" sid="281114030657139" type="System">
+                                                            <param id="0" name="First value">loopindex(&quot;y&quot;)%2</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">0</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Compare two values" sid="779193569152434" type="System">
+                                                            <param id="0" name="First value">random(10)</param>
+                                                            <param id="1" name="Comparison">4</param>
+                                                            <param id="2" name="Second value">0</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-3" name="Create object" sid="581729159921578" type="System">
+                                                            <param id="0" name="Object to create">wall</param>
+                                                            <param id="1" name="Layer">0</param>
+                                                            <param id="2" name="X">loopindex(&quot;x&quot;)*8 </param>
+                                                            <param id="3" name="Y">loopindex(&quot;y&quot;)*8 </param>
+                                                        </action>
+                                                        <action id="-9" name="Set value" sid="472432310308738" type="System">
+                                                            <param id="0" name="Variable">r</param>
+                                                            <param id="1" name="Value">int(random(0,4))</param>
+                                                        </action>
+                                                        <action id="-3" name="Create object" sid="400833016134795" type="System">
+                                                            <param id="0" name="Object to create">wall</param>
+                                                            <param id="1" name="Layer">0</param>
+                                                            <param id="2" name="X">(loopindex(&quot;x&quot;)*8)+(8*(r=0))-(8*(r=2))</param>
+                                                            <param id="3" name="Y">(loopindex(&quot;y&quot;)*8)+(8*(r=1))-(8*(r=3))</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
                     </sub-events>
                 </event-block>
             </sub-events>
