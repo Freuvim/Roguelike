@@ -22,7 +22,7 @@
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>128</width>
+        <width>136</width>
         <height>128</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
