@@ -15,6 +15,17 @@
                     <param id="0" name="Variable">posPlayer</param>
                     <param id="1" name="Value">floor(random(4))</param>
                 </action>
+                <action id="-9" name="Destroy" sid="672236490246137" type="player" />
+            </actions>
+        </event-block>
+        <event-block sid="936436338934490">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="190962766967101" type="Keyboard">
+                    <param id="0" name="Key">82 (R)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="700494768291727" type="System" />
             </actions>
         </event-block>
         <event-group description="" sid="171357001557165" title="SpawnPlayer">
@@ -37,6 +48,10 @@
                         <action id="-9" name="Set value" sid="312037632486473" type="System">
                             <param id="0" name="Variable">posPlayer</param>
                             <param id="1" name="Value">4</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="286489383065256" type="player">
+                            <param id="0" name="X">8</param>
+                            <param id="1" name="Y">8</param>
                         </action>
                     </actions>
                 </event-block>
