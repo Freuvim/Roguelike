@@ -188,7 +188,7 @@
                                         <action id="-3" name="Create object" sid="683332479034402" type="System">
                                             <param id="0" name="Object to create">wall</param>
                                             <param id="1" name="Layer">0</param>
-                                            <param id="2" name="X">112</param>
+                                            <param id="2" name="X">120</param>
                                             <param id="3" name="Y">loopindex(&quot;y&quot;)*8</param>
                                         </action>
                                     </actions>
@@ -225,7 +225,7 @@
                                         <condition id="-10" name="For" sid="787699528331230" type="System">
                                             <param id="0" name="Name">&quot;x&quot;</param>
                                             <param id="1" name="Start index">1</param>
-                                            <param id="2" name="End index">12</param>
+                                            <param id="2" name="End index">15</param>
                                         </condition>
                                     </conditions>
                                     <actions />
