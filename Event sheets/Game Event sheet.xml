@@ -6,6 +6,29 @@
         <variable constant="0" name="posPlayer" sid="471496584713456" static="0" type="number">0</variable>
         <variable constant="0" name="x" sid="265921327847627" static="0" type="number">0</variable>
         <variable constant="0" name="y" sid="129445141149614" static="0" type="number">0</variable>
+        <event-block sid="728648005411524">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="933359460523062" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="316508383340549" type="leftCollision">
+                    <param id="0" name="X">player.ImagePointX(&quot;collision&quot;) - 8</param>
+                    <param id="1" name="Y">player.ImagePointY(&quot;collision&quot;)</param>
+                </action>
+                <action id="-3" name="Set position" sid="753036139454150" type="rightCollision">
+                    <param id="0" name="X">player.ImagePointX(&quot;collision&quot;) + 8</param>
+                    <param id="1" name="Y">player.ImagePointY(&quot;collision&quot;)</param>
+                </action>
+                <action id="-3" name="Set position" sid="491950702415439" type="upCollision">
+                    <param id="0" name="X">player.ImagePointX(&quot;collision&quot;)</param>
+                    <param id="1" name="Y">player.ImagePointY(&quot;collision&quot;) - 8</param>
+                </action>
+                <action id="-3" name="Set position" sid="293935805897470" type="downCollision">
+                    <param id="0" name="X">player.ImagePointX(&quot;collision&quot;)</param>
+                    <param id="1" name="Y">player.ImagePointY(&quot;collision&quot;) + 8</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="482307006723461">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="765462888531421" type="System" />
@@ -88,8 +111,8 @@
                         <action id="-3" name="Create object" sid="600259851887582" type="System">
                             <param id="0" name="Object to create">player</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">112</param>
-                            <param id="3" name="Y">112</param>
+                            <param id="2" name="X">8</param>
+                            <param id="3" name="Y">96</param>
                         </action>
                         <action id="-9" name="Set value" sid="740719194254496" type="System">
                             <param id="0" name="Variable">posPlayer</param>
@@ -109,8 +132,8 @@
                         <action id="-3" name="Create object" sid="163834130078284" type="System">
                             <param id="0" name="Object to create">player</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">8</param>
-                            <param id="3" name="Y">112</param>
+                            <param id="2" name="X">112</param>
+                            <param id="3" name="Y">96</param>
                         </action>
                         <action id="-9" name="Set value" sid="488653004887992" type="System">
                             <param id="0" name="Variable">posPlayer</param>
@@ -143,6 +166,70 @@
                             <actions />
                         </event-block>
                     </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="833538738993507" title="Controls">
+            <sub-events>
+                <event-block sid="646819280900202">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="144997963585128" type="Keyboard">
+                            <param id="0" name="Key">37 (Left arrow)</param>
+                        </condition>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="164139992551029" type="leftCollision">
+                            <param id="0" name="Object">wall</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="676650906530872" type="player">
+                            <param id="0" name="X">player.X - 8</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="134447535643835">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="123839777185902" type="Keyboard">
+                            <param id="0" name="Key">39 (Right arrow)</param>
+                        </condition>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="648096244214072" type="rightCollision">
+                            <param id="0" name="Object">wall</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="423886044606954" type="player">
+                            <param id="0" name="X">player.X + 8</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="686302927018984">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="272167218994590" type="Keyboard">
+                            <param id="0" name="Key">38 (Up arrow)</param>
+                        </condition>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="412748722483274" type="upCollision">
+                            <param id="0" name="Object">wall</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="488242086759037" type="player">
+                            <param id="0" name="Y">player.Y - 8</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="416839484368605">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="316821934006100" type="Keyboard">
+                            <param id="0" name="Key">40 (Down arrow)</param>
+                        </condition>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="486664443310955" type="downCollision">
+                            <param id="0" name="Object">wall</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="986717955154817" type="player">
+                            <param id="0" name="Y">player.Y + 8</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>
