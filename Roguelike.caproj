@@ -44,10 +44,13 @@
     <object-folder>
         <object-type name="player" sid="151572478873673">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="move" sid="363571690089830" type="number" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="317827656279134" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0">
-                        <image-point name="collision" x="0.5" y="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="eyes" x="0.5" y="0.5" />
                     </frame>
                 </animation>
             </animation-folder>
@@ -123,8 +126,32 @@
         <object-type name="enemy" sid="462411714387923">
             <plugin id="Sprite" />
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="780835658501482" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                <animation-folder name="melee">
+                    <animation framecount="1" loop="0" name="blue" pingpong="0" repeatcount="1" repeatto="0" sid="780835658501482" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Fréuvim\Desktop\inimigos vermelhos.png">
+                            <collision-poly>
+                                <point x="0.375" y="0.375" />
+                                <point x="1" y="0.75" />
+                                <point x="1" y="0.375" />
+                                <point x="1" y="1" />
+                                <point x="1" y="1" />
+                                <point x="1" y="1" />
+                                <point x="0.125" y="1" />
+                                <point x="1" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+                <animation framecount="1" loop="0" name="Animation2" pingpong="0" repeatcount="1" repeatto="0" sid="886352949357180" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="eyes" sid="577288250972518">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="258145575403211" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>

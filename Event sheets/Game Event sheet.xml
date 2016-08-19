@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game Event sheet</name>
     <events>
+        <variable constant="0" name="spawnEnemy" sid="531478018323450" static="0" type="number">0</variable>
         <variable constant="0" name="posPlayer" sid="471496584713456" static="0" type="number">0</variable>
         <event-block sid="482307006723461">
             <conditions>
@@ -18,6 +19,10 @@
                 <action id="-9" name="Set value" sid="732116417089862" type="System">
                     <param id="0" name="Variable">posPlayer</param>
                     <param id="1" name="Value">floor(random(4))</param>
+                </action>
+                <action id="-9" name="Set value" sid="439887886765913" type="System">
+                    <param id="0" name="Variable">spawnEnemy</param>
+                    <param id="1" name="Value">1</param>
                 </action>
             </actions>
         </event-block>
@@ -45,16 +50,12 @@
                         <action id="-3" name="Create object" sid="751838384187389" type="System">
                             <param id="0" name="Object to create">player</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">8</param>
-                            <param id="3" name="Y">8</param>
+                            <param id="2" name="X">12</param>
+                            <param id="3" name="Y">12</param>
                         </action>
                         <action id="-9" name="Set value" sid="312037632486473" type="System">
                             <param id="0" name="Variable">posPlayer</param>
                             <param id="1" name="Value">4</param>
-                        </action>
-                        <action id="-3" name="Set position" sid="286489383065256" type="player">
-                            <param id="0" name="X">8</param>
-                            <param id="1" name="Y">8</param>
                         </action>
                     </actions>
                 </event-block>
@@ -70,8 +71,8 @@
                         <action id="-3" name="Create object" sid="108034605339974" type="System">
                             <param id="0" name="Object to create">player</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">120</param>
-                            <param id="3" name="Y">8</param>
+                            <param id="2" name="X">124</param>
+                            <param id="3" name="Y">12</param>
                         </action>
                         <action id="-9" name="Set value" sid="212862334203522" type="System">
                             <param id="0" name="Variable">posPlayer</param>
@@ -91,8 +92,8 @@
                         <action id="-3" name="Create object" sid="600259851887582" type="System">
                             <param id="0" name="Object to create">player</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">8</param>
-                            <param id="3" name="Y">104</param>
+                            <param id="2" name="X">12</param>
+                            <param id="3" name="Y">108</param>
                         </action>
                         <action id="-9" name="Set value" sid="740719194254496" type="System">
                             <param id="0" name="Variable">posPlayer</param>
@@ -112,8 +113,8 @@
                         <action id="-3" name="Create object" sid="163834130078284" type="System">
                             <param id="0" name="Object to create">player</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">120</param>
-                            <param id="3" name="Y">104</param>
+                            <param id="2" name="X">124</param>
+                            <param id="3" name="Y">108</param>
                         </action>
                         <action id="-9" name="Set value" sid="488653004887992" type="System">
                             <param id="0" name="Variable">posPlayer</param>
@@ -231,7 +232,7 @@
                                                         <condition id="-8" name="Compare two values" sid="779193569152434" type="System">
                                                             <param id="0" name="First value">random(10)</param>
                                                             <param id="1" name="Comparison">4</param>
-                                                            <param id="2" name="Second value">0</param>
+                                                            <param id="2" name="Second value">2</param>
                                                         </condition>
                                                     </conditions>
                                                     <actions>
@@ -270,13 +271,14 @@
                         <condition id="0" name="On key pressed" sid="144997963585128" type="Keyboard">
                             <param id="0" name="Key">37 (Left arrow)</param>
                         </condition>
-                        <condition id="1" inverted="1" name="Is overlapping another object" sid="164139992551029" type="leftCollision">
-                            <param id="0" name="Object">wall</param>
-                        </condition>
                     </conditions>
                     <actions>
-                        <action id="-1" name="Set X" sid="676650906530872" type="player">
-                            <param id="0" name="X">player.X - 8</param>
+                        <action id="-8" name="Set angle" sid="724208136761947" type="player">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="466143099331110" type="player">
+                            <param id="0" name="Instance variable">move</param>
+                            <param id="1" name="Value">8</param>
                         </action>
                     </actions>
                 </event-block>
@@ -285,13 +287,14 @@
                         <condition id="0" name="On key pressed" sid="123839777185902" type="Keyboard">
                             <param id="0" name="Key">39 (Right arrow)</param>
                         </condition>
-                        <condition id="1" inverted="1" name="Is overlapping another object" sid="648096244214072" type="rightCollision">
-                            <param id="0" name="Object">wall</param>
-                        </condition>
                     </conditions>
                     <actions>
-                        <action id="-1" name="Set X" sid="423886044606954" type="player">
-                            <param id="0" name="X">player.X + 8</param>
+                        <action id="-8" name="Set angle" sid="988426399689767" type="player">
+                            <param id="0" name="Angle">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="243947363534426" type="player">
+                            <param id="0" name="Instance variable">move</param>
+                            <param id="1" name="Value">8</param>
                         </action>
                     </actions>
                 </event-block>
@@ -300,13 +303,14 @@
                         <condition id="0" name="On key pressed" sid="272167218994590" type="Keyboard">
                             <param id="0" name="Key">38 (Up arrow)</param>
                         </condition>
-                        <condition id="1" inverted="1" name="Is overlapping another object" sid="412748722483274" type="upCollision">
-                            <param id="0" name="Object">wall</param>
-                        </condition>
                     </conditions>
                     <actions>
-                        <action id="-2" name="Set Y" sid="488242086759037" type="player">
-                            <param id="0" name="Y">player.Y - 8</param>
+                        <action id="-8" name="Set angle" sid="833603487792246" type="player">
+                            <param id="0" name="Angle">-90</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="478367969092022" type="player">
+                            <param id="0" name="Instance variable">move</param>
+                            <param id="1" name="Value">8</param>
                         </action>
                     </actions>
                 </event-block>
@@ -315,117 +319,156 @@
                         <condition id="0" name="On key pressed" sid="316821934006100" type="Keyboard">
                             <param id="0" name="Key">40 (Down arrow)</param>
                         </condition>
-                        <condition id="1" inverted="1" name="Is overlapping another object" sid="486664443310955" type="downCollision">
-                            <param id="0" name="Object">wall</param>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="730848727704753" type="player">
+                            <param id="0" name="Angle">90</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="726128513720957" type="player">
+                            <param id="0" name="Instance variable">move</param>
+                            <param id="1" name="Value">8</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="285813198820613">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="738461094026469" type="player">
+                            <param id="0" name="Instance variable">move</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-2" name="Set Y" sid="986717955154817" type="player">
-                            <param id="0" name="Y">player.Y + 8</param>
+                        <action id="-3" name="Set position" sid="486275217845661" type="eyes">
+                            <param id="0" name="X">player.ImagePointX(&quot;eyes&quot;)+cos(player.Angle) * 8</param>
+                            <param id="1" name="Y">player.ImagePointY(&quot;eyes&quot;)+sin(player.Angle) * 8</param>
                         </action>
                     </actions>
-                </event-block>
-                <event-block sid="690373006040189">
-                    <conditions>
-                        <condition id="1" name="On any key pressed" sid="445458907747494" type="Keyboard" />
-                    </conditions>
-                    <actions>
-                        <action id="-3" name="Set position" sid="825771258991527" type="leftCollision">
-                            <param id="0" name="X">player.ImagePointX(&quot;collision&quot;) - 8</param>
-                            <param id="1" name="Y">player.ImagePointY(&quot;collision&quot;)</param>
-                        </action>
-                        <action id="-3" name="Set position" sid="595698888453009" type="rightCollision">
-                            <param id="0" name="X">player.ImagePointX(&quot;collision&quot;) + 8</param>
-                            <param id="1" name="Y">player.ImagePointY(&quot;collision&quot;)</param>
-                        </action>
-                        <action id="-3" name="Set position" sid="541362922656905" type="upCollision">
-                            <param id="0" name="X">player.ImagePointX(&quot;collision&quot;)</param>
-                            <param id="1" name="Y">player.ImagePointY(&quot;collision&quot;) - 8</param>
-                        </action>
-                        <action id="-3" name="Set position" sid="567290905513812" type="downCollision">
-                            <param id="0" name="X">player.ImagePointX(&quot;collision&quot;)</param>
-                            <param id="1" name="Y">player.ImagePointY(&quot;collision&quot;) + 8</param>
-                        </action>
-                    </actions>
+                    <sub-events>
+                        <event-block sid="433116634913976">
+                            <conditions>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="628718037534284" type="eyes">
+                                    <param id="0" name="Object">wall</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set position to another object" sid="226840990728318" type="player">
+                                    <param id="0" name="Object">eyes</param>
+                                    <param id="1" name="Image point (optional)">player.ImagePointX(&quot;eyes&quot;) * player.ImagePointY(&quot;eyes&quot;)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="284516374368664" type="player">
+                                    <param id="0" name="Instance variable">move</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="302673203150449" title="SpawnEnemy">
+        <event-group description="" disabled="1" sid="302673203150449" title="SpawnEnemy">
             <sub-events>
                 <variable constant="0" name="randpos" sid="804971038549356" static="0" type="number">0</variable>
-                <event-block sid="300945680692739">
+                <event-block sid="551350070833062">
                     <conditions>
-                        <condition id="-10" name="For" sid="637344439254868" type="System">
-                            <param id="0" name="Name">&quot;x&quot;</param>
-                            <param id="1" name="Start index">1</param>
-                            <param id="2" name="End index">15</param>
+                        <condition id="-14" name="Compare variable" sid="587417835938459" type="System">
+                            <param id="0" name="Variable">spawnEnemy</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
                         </condition>
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="645649381682596">
+                        <event-block sid="300945680692739">
                             <conditions>
-                                <condition id="-10" name="For" sid="327545531336933" type="System">
-                                    <param id="0" name="Name">&quot;y&quot;</param>
+                                <condition id="-10" name="For" sid="637344439254868" type="System">
+                                    <param id="0" name="Name">&quot;x&quot;</param>
                                     <param id="1" name="Start index">1</param>
-                                    <param id="2" name="End index">14</param>
+                                    <param id="2" name="End index">15</param>
                                 </condition>
                             </conditions>
-                            <actions>
-                                <action id="-9" name="Set value" sid="452201117716376" type="System">
-                                    <param id="0" name="Variable">randpos</param>
-                                    <param id="1" name="Value">floor(random(0, 210))</param>
-                                </action>
-                            </actions>
+                            <actions />
                             <sub-events>
-                                <event-block any="1" sid="110782139032647">
+                                <event-block sid="645649381682596">
                                     <conditions>
-                                        <condition id="1" name="Is overlapping another object" sid="608081865569590" type="enemy">
-                                            <param id="0" name="Object">enemy</param>
-                                        </condition>
-                                        <condition id="1" name="Is overlapping another object" sid="840718117653974" type="enemy">
-                                            <param id="0" name="Object">player</param>
+                                        <condition id="-10" name="For" sid="327545531336933" type="System">
+                                            <param id="0" name="Name">&quot;y&quot;</param>
+                                            <param id="1" name="Start index">1</param>
+                                            <param id="2" name="End index">14</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-9" name="Destroy" sid="292311156659860" type="enemy" />
-                                    </actions>
-                                </event-block>
-                                <event-block sid="498382828881643">
-                                    <conditions>
-                                        <condition id="-8" name="Compare two values" sid="537061185706496" type="System">
-                                            <param id="0" name="First value">loopindex(&quot;x&quot;)%2</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Second value">1</param>
-                                        </condition>
-                                        <condition id="-8" name="Compare two values" sid="740025368569531" type="System">
-                                            <param id="0" name="First value">loopindex(&quot;y&quot;)%2</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Second value">1</param>
-                                        </condition>
-                                        <condition id="-8" name="Compare two values" sid="761811476307213" type="System">
-                                            <param id="0" name="First value">randpos</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Second value">loopindex(&quot;x&quot;) * loopindex(&quot;y&quot;)</param>
-                                        </condition>
-                                        <condition id="-8" name="Compare two values" sid="555136173918564" type="System">
-                                            <param id="0" name="First value">enemy.Count</param>
-                                            <param id="1" name="Comparison">2</param>
-                                            <param id="2" name="Second value">10</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-3" name="Create object" sid="708895673418134" type="System">
-                                            <param id="0" name="Object to create">enemy</param>
-                                            <param id="1" name="Layer">0</param>
-                                            <param id="2" name="X">loopindex(&quot;x&quot;)*8</param>
-                                            <param id="3" name="Y">loopindex(&quot;y&quot;)*8</param>
+                                        <action id="-9" name="Set value" sid="452201117716376" type="System">
+                                            <param id="0" name="Variable">randpos</param>
+                                            <param id="1" name="Value">floor(random(0, 210))</param>
                                         </action>
                                     </actions>
+                                    <sub-events>
+                                        <event-block any="1" sid="110782139032647">
+                                            <conditions>
+                                                <condition id="1" name="Is overlapping another object" sid="608081865569590" type="enemy">
+                                                    <param id="0" name="Object">enemy</param>
+                                                </condition>
+                                                <condition id="1" name="Is overlapping another object" sid="565670740664546" type="enemy">
+                                                    <param id="0" name="Object">player</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Destroy" sid="292311156659860" type="enemy" />
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="498382828881643">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="537061185706496" type="System">
+                                                    <param id="0" name="First value">loopindex(&quot;x&quot;)%2</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">1</param>
+                                                </condition>
+                                                <condition id="-8" name="Compare two values" sid="740025368569531" type="System">
+                                                    <param id="0" name="First value">loopindex(&quot;y&quot;)%2</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">1</param>
+                                                </condition>
+                                                <condition id="-8" name="Compare two values" sid="761811476307213" type="System">
+                                                    <param id="0" name="First value">randpos</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">loopindex(&quot;x&quot;) * loopindex(&quot;y&quot;)</param>
+                                                </condition>
+                                                <condition id="-8" name="Compare two values" sid="555136173918564" type="System">
+                                                    <param id="0" name="First value">enemy.Count</param>
+                                                    <param id="1" name="Comparison">2</param>
+                                                    <param id="2" name="Second value">10</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Create object" sid="708895673418134" type="System">
+                                                    <param id="0" name="Object to create">enemy</param>
+                                                    <param id="1" name="Layer">0</param>
+                                                    <param id="2" name="X">loopindex(&quot;x&quot;)*8</param>
+                                                    <param id="3" name="Y">loopindex(&quot;y&quot;)*8</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
                                 </event-block>
                             </sub-events>
                         </event-block>
                     </sub-events>
+                </event-block>
+                <event-block sid="349317288787581">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="553568866270809" type="System">
+                            <param id="0" name="First value">enemy.Count</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="512905377417979" type="System">
+                            <param id="0" name="Variable">spawnEnemy</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>
