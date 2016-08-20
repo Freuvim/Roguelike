@@ -232,7 +232,7 @@
                                                         <condition id="-8" name="Compare two values" sid="779193569152434" type="System">
                                                             <param id="0" name="First value">random(10)</param>
                                                             <param id="1" name="Comparison">4</param>
-                                                            <param id="2" name="Second value">2</param>
+                                                            <param id="2" name="Second value">4</param>
                                                         </condition>
                                                     </conditions>
                                                     <actions>
@@ -362,11 +362,21 @@
                                 </action>
                             </actions>
                         </event-block>
+                        <event-block sid="719594322098987">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="224401617381738" type="eyes">
+                                    <param id="0" name="Object">enemy</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="774703063492277" type="enemy" />
+                            </actions>
+                        </event-block>
                     </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" disabled="1" sid="302673203150449" title="SpawnEnemy">
+        <event-group description="" sid="302673203150449" title="SpawnEnemy">
             <sub-events>
                 <variable constant="0" name="randpos" sid="804971038549356" static="0" type="number">0</variable>
                 <event-block sid="551350070833062">
